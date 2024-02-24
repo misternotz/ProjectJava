@@ -46,7 +46,7 @@ public class HomeController {
         userRepository.save(user); // บันทึกข้อมูลผู้ใช้
 
         model.addAttribute("message", "Registration successful! Welcome, " + username);
-        return "register";
+        return "redirect:/login";
     }
     
 
@@ -61,10 +61,13 @@ public class HomeController {
 
         if (user != null && BCrypt.checkpw(password, user.getPassword())) {
             model.addAttribute("message", "Login successful! Welcome, " + username);
+            return "redirect:/";
         } else {
             model.addAttribute("message", "Login failed. Please try again.");
+            return "login";
         }
         
-        return "redirect:/";
+        
+
     }
 }
