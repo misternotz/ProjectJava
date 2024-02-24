@@ -32,7 +32,7 @@ public class HomeController {
                            @RequestParam String email, Model model) {
         // ตรวจสอบว่ามี Username ที่ซ้ำกันหรือไม่
         if (userRepository.findByUsername(username) != null) {
-            model.addAttribute("message", "Registration failed. Username already exists.");
+            model.addAttribute("messageregister", "Registration failed. Username already exists.");
             return "register";
         }
 
@@ -45,7 +45,7 @@ public class HomeController {
 
         userRepository.save(user); // บันทึกข้อมูลผู้ใช้
 
-        model.addAttribute("message", "Registration successful! Welcome, " + username);
+        model.addAttribute("messageregister", "Registration successful! Welcome, " + username);
         return "redirect:/login";
     }
     
@@ -60,10 +60,10 @@ public class HomeController {
         User user = userRepository.findByUsername(username);
 
         if (user != null && BCrypt.checkpw(password, user.getPassword())) {
-            model.addAttribute("message", "Login successful! Welcome, " + username);
+            model.addAttribute("messagelogin", "Login successful! Welcome, " + username);
             return "redirect:/";
         } else {
-            model.addAttribute("message", "Login failed. Please try again.");
+            model.addAttribute("messagelogin", "Login failed. Please try again.");
             return "login";
         }
     }
