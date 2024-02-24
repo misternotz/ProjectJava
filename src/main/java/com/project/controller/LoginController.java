@@ -2,6 +2,9 @@ package com.project.controller;
 
 
 import com.project.model.User;
+
+import java.lang.ProcessBuilder.Redirect;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,11 +31,12 @@ public class LoginController {
         User user = userRepository.findByUsername(username);
 
         if (user != null && BCrypt.checkpw(password, user.getPassword())) {
-            model.addAttribute("message", "Login successful! Welcome, " + username);
+            model.addAttribute("messagelogin", "Login successful! Welcome, " + username);
+            return "redirect:/";
         } else {
-            model.addAttribute("message", "Login failed. Please try again.");
+            model.addAttribute("messagelogin", "Login failed. Please try again.");
+            return "login";
         }
 
-        return "login";
     }
 }

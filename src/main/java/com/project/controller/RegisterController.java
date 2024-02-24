@@ -28,7 +28,7 @@ public class RegisterController {
                            @RequestParam String email, Model model) {
         // ตรวจสอบว่ามี Username ที่ซ้ำกันหรือไม่
         if (userRepository.findByUsername(username) != null) {
-            model.addAttribute("message", "Registration failed. Username already exists.");
+            model.addAttribute("messageregister", "Registration failed. Username already exists.");
             return "register";
         }
 
@@ -41,8 +41,8 @@ public class RegisterController {
 
         userRepository.save(user); // บันทึกข้อมูลผู้ใช้
 
-        model.addAttribute("message", "Registration successful! Welcome, " + username);
-        return "register";
+        model.addAttribute("messageregister", "Registration successful! Welcome, " + username);
+        return "login";
     }
 
 }
