@@ -1,5 +1,7 @@
 package com.project.controller;
 
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,14 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.model.Forum;
+import com.project.model.ForumRepo;
 import com.project.model.User;
 import com.project.repository.UserRepository;
 
 @Controller
 public class HomeController {
+	@Autowired
+	ForumRepo repof;
 
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
+		List<Forum> f = repof.showAll();
+		model.addAttribute("listF",f);
         return "home";
     }
     
@@ -73,8 +81,5 @@ public class HomeController {
         }
     }
     
-    @GetMapping("/insertForum")
-    public String insertForum() {
-        return "insertForum";
-    }
+
 }

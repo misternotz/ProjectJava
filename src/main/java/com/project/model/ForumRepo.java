@@ -35,7 +35,7 @@ public class ForumRepo {
     public Forum update(Forum update) {
         Forum forum = emf.find(Forum.class, update.getId());
         forum.setLove(update.getLove());
-        forum.setPostDate(new Date(System.currentTimeMillis()));
+//        forum.setPostDate(new Date(System.currentTimeMillis()));
         return forum;
     }
 	

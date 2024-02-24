@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import com.project.model.Forum;
 import com.project.model.ForumRepo;
 
@@ -22,14 +24,27 @@ public class ForumController {
 	public String showDataF(Model model) {
 			List<Forum> f = repof.showAll();
 			model.addAttribute("listF",f);
-			return "/jsp/forum.jsp";
+			return "home";
 	}
+    @GetMapping("/insertForum")
+    public String insertForum(Model model) {
+    	model.addAttribute("forum", new Forum());
+        return "insertForum";
+    }
 	
-	@GetMapping("/addF")
-	public String add(@ModelAttribute Forum forum,Model model) {
-		repof.insertData(forum);
-		
-		return "redirect:/showForum";
+	@PostMapping("/addF")
+	public String add(@ModelAttribute Forum forum, Model model) {
+	    // Set default values if not provided in the form
+	        forum.setAuthor("not");
+	        forum.setLove(0);
+
+	    // Insert data into the database
+	    repof.insertData(forum);
+
+	    return "redirect:/";
+	}
+
+//		return "redirect:/";
 //		Forum ans = new Forum();
 //		ans.setDetail("Hello");
 //		ans.setAuthor("GJ");
@@ -37,12 +52,13 @@ public class ForumController {
 //		ans.setPostDate(new Date(System.currentTimeMillis()));
 //		repof.insertData(ans);
 //		System.out.println("Insert Successful");
-	}
+
+
 	@GetMapping("/addlove/{id}")
     public String change(@PathVariable Integer id, Model model) {
 		Forum forum = repof.findById(id);
         forum.upLove();
         repof.update(forum);
-        return "redirect:/showForum";  
+        return "redirect:/";  
     }
 }

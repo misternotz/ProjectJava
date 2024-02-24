@@ -109,15 +109,15 @@
             <h1>ตั้งกระทู้</h1>
             
             <div class="content-1">
-                <form>
+                <form th:action="@{/addF}" th:object="${forum}" method="post">
                     <div class="mb-3">
                       <label for="head" class="form-label">หัวข้อเรื่อง</label>
-                      <input type="email" class="form-control" id="head" aria-describedby="emailHelp">
+                      <input class="form-control" type="text" id="headForum" name="headForum" th:field="*{headForum}" required>
                       <div id="headContent" class="form-text">ตั้งชื่อหัวข้อกระทู้ของคุณได้เลย!</div>
                     </div>
                     <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">รายละเอียดของกระทู้</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                    <textarea class="form-control" id="detail" name="detail" th:field="*{detail}" rows="10" required></textarea>
                     <div id="headContent" class="form-text">ใส่รายละเอียดของคุณได้เลย!</div>
                   </div>
                     <button type="submit" class="btn btn-primary">ตั้งกระทู้</button>

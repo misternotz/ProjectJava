@@ -1,7 +1,9 @@
 package com.project.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,15 +16,25 @@ public class Forum {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	
+	private String HeadForum;
 	private String detail;
 	private String author;
 	private Integer love;
-	private Date postDate;
+	
+    @Column(name = "post_date")
+    private LocalDate postDate = LocalDate.now();
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getHeadForum() {
+		return HeadForum;
+	}
+	public void setHeadForum(String headForum) {
+		HeadForum = headForum;
 	}
 	public String getDetail() {
 		return detail;
@@ -45,11 +57,12 @@ public class Forum {
 	public void upLove() {
 		this.love = love +1;
 	}
-	public Date getPostDate() {
+	public LocalDate getPostDate() {
 		return postDate;
 	}
-	public void setPostDate(Date postDate) {
+	public void setPostDate(LocalDate postDate) {
 		this.postDate = postDate;
 	}
+	
 	
 }
