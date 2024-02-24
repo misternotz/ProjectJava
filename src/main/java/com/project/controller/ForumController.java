@@ -45,7 +45,6 @@ public class ForumController {
 		Forum forum = repof.findById(id);
         forum.upLove();
         repof.update(forum);
-        return "redirect:/showForum";
-        
+        return "redirect:/showForum";  
     }
 }
