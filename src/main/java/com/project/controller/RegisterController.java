@@ -25,10 +25,15 @@ public class RegisterController {
 
     @PostMapping("/register")
     public String register(@RequestParam String username, @RequestParam String password,
-                           @RequestParam String email, Model model) {
+                           @RequestParam String confirmPassword, @RequestParam String email, Model model) {
         // ตรวจสอบว่ามี Username ที่ซ้ำกันหรือไม่
         if (userRepository.findByUsername(username) != null) {
             model.addAttribute("message", "Registration failed. Username already exists.");
+            return "register";
+        }
+
+        if (!password.equals(confirmPassword)) {
+            model.addAttribute("message", "Registration failed. Passwords do not match.");
             return "register";
         }
 
@@ -42,8 +47,10 @@ public class RegisterController {
         userRepository.save(user); // บันทึกข้อมูลผู้ใช้
 
         model.addAttribute("message", "Registration successful! Welcome, " + username);
-        return "register";
+        return "redirect:/login";
+        //return "register";
     }
+
 
 }
 

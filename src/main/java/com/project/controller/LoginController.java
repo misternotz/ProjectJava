@@ -32,7 +32,7 @@ public class LoginController {
         } else {
             model.addAttribute("message", "Login failed. Please try again.");
         }
-
-        return "login";
+        return "redirect:/";
+        //return "login";
     }
 }
