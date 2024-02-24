@@ -50,4 +50,5 @@ public class Forum {
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
+	
 }

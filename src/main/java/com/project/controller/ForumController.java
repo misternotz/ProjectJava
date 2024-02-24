@@ -46,5 +46,6 @@ public class ForumController {
         forum.upLove();
         repof.update(forum);
         return "redirect:/showForum";
+        
     }
 }

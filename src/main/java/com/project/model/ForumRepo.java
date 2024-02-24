@@ -37,5 +37,6 @@ public class ForumRepo {
         forum.setPostDate(new Date(System.currentTimeMillis()));
         return forum;
     }
+	
 
 }
