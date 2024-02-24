@@ -32,12 +32,12 @@ public class HomeController {
                            @RequestParam String confirmPassword, @RequestParam String email, Model model) {
         // ตรวจสอบว่ามี Username ที่ซ้ำกันหรือไม่
         if (userRepository.findByUsername(username) != null) {
-            model.addAttribute("message", "Registration failed. Username already exists.");
+            model.addAttribute("messageregister", "Registration failed. Username already exists.");
             return "register";
         }
 
         if (!password.equals(confirmPassword)) {
-            model.addAttribute("message", "Registration failed. Passwords do not match.");
+            model.addAttribute("messageregister", "Registration failed. Passwords do not match.");
             return "register";
         }
 
