@@ -15,6 +15,7 @@ public class ForumRepo {
 	@PersistenceContext
 	private EntityManager emf;
 	
+	
 	public List<Forum> showAll() {
 		Query q = emf.createQuery("from Forum");
 		return q.getResultList();

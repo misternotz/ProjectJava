@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Forum {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	

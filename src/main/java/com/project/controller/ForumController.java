@@ -31,6 +31,7 @@ public class ForumController {
 	@GetMapping("/addF")
 	public String add(@ModelAttribute Forum forum,Model model) {
 		repof.insertData(forum);
+		
 		return "redirect:/showForum";
 //		Forum ans = new Forum();
 //		ans.setDetail("Hello");
