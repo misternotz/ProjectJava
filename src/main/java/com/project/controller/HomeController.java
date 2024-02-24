@@ -71,8 +71,10 @@ public class HomeController {
             model.addAttribute("messagelogin", "Login failed. Please try again.");
             return "login";
         }
-        
-        
-
+    }
+    
+    @GetMapping("/insertForum")
+    public String insertForum() {
+        return "insertForum";
     }
 }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Forum Page</title>
+
+    <!-- Add link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add link to your custom CSS file -->
+    <link href="path/to/custom.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(0, 64, 128); /* Pantip background color */
+        }
+
+        .navbar {
+            background-color: #ff4081; /* Pantip navbar color */
+            color: #ffffff; /* Text color for navbar */
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .nav-1 {
+            background-color: #e0e0e0; /* Left block background color */
+            padding: 15px;
+        }
+
+        .nav-2 {
+            background-color: #c0c0c0; /* Right block background color */
+            padding: 15px;
+        }
+
+        .nav-3 {
+            background-color: #d8d8d8; /* Center block background color */
+            padding: 15px;
+        }
+
+		h1 {
+		    color: rgb(255, 128, 0); /* Pantip main heading color */
+		    font-family: serif;
+		}
+
+        .content-1{
+			margin-top: 20px;
+			background-color: white;
+			width: 100%;
+			height: 100vh;
+			padding: 15px;
+		}
+    </style>
+</head>
+<body>
+	
+		  <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Pantup.com</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+			
+            <div class="col-md-8">
+                <!-- Left Block -->
+                <div class="nav-1">
+                    <div class="search-bar">
+                		<form class="d-flex">
+                   			 <input class="form-control me-2" type="search" placeholder="ค้นหาบน Pantup" aria-label="Search">
+                    		<button class="btn btn-outline-success" type="submit">Search</button>
+                		</form>
+            		</div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <!-- Right Block -->
+                <div class="nav-2">
+                    <a href="/insertForum" class="btn btn-success">ตั้งกระทู้</a>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Center Block with Search Bar -->
+        <div class="nav-3">
+            
+            <!-- Add content for your custom section in the center -->
+            <h1>ตั้งกระทู้</h1>
+            
+            <div class="content-1">
+                <form>
+                    <div class="mb-3">
+                      <label for="head" class="form-label">หัวข้อเรื่อง</label>
+                      <input type="email" class="form-control" id="head" aria-describedby="emailHelp">
+                      <div id="headContent" class="form-text">ตั้งชื่อหัวข้อกระทู้ของคุณได้เลย!</div>
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">รายละเอียดของกระทู้</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                    <div id="headContent" class="form-text">ใส่รายละเอียดของคุณได้เลย!</div>
+                  </div>
+                    <button type="submit" class="btn btn-primary">ตั้งกระทู้</button>
+                    <a href="/" class="btn btn-outline-danger">ยกเลิก</a>
+                  </form>
+			</div>
+        </div>
+    </div>
+
+
+    <!-- Add link to Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
+<!-- เว็ป icon นะ
+https://ionic.io/ionicons
+-->

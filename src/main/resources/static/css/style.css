@@ -8,10 +8,6 @@ p {
     max-height: 200px;
     overflow: auto;
 }
-h1 {
-    color: rgb(255, 128, 0); /* Pantip main heading color */
-    font-family: serif;
-}
 .author {
     display: flex;
     color: grey;
