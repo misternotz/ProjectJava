@@ -1,0 +1,49 @@
+.forum {
+    border: 10px solid #c0c0c0;
+    background-color: white;
+    padding: 1em;
+    margin-bottom: .5rem;
+}
+p {
+    max-height: 200px;
+    overflow: auto;
+}
+h1 {
+    color: rgb(255, 128, 0); /* Pantip main heading color */
+    font-family: serif;
+}
+.author {
+    display: flex;
+    color: grey;
+    align-items: center;
+}
+.author .favorite {
+    display: flex;
+    align-items: center;
+}
+.author-name {
+    margin-right:10px;
+}
+.author-name a{
+    color: rgb(255, 128, 0); 
+}
+.author-name a:hover {
+    color: rgb(255, 51, 0);
+}
+.date {
+    margin-right: 0;
+    color: #c0c0c0;
+}
+.lover {
+    margin: 0 10px 0 5px;
+}
+.icon:hover {
+    color: rgb(255, 0, 98);
+    cursor: pointer;
+}
+
+.up {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
