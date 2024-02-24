@@ -51,7 +51,7 @@ public class HomeController {
         userRepository.save(user); // บันทึกข้อมูลผู้ใช้
 
         model.addAttribute("message", "Registration successful! Welcome, " + username);
-        return "register";
+        return "redirect:/login";
     }
     
 
