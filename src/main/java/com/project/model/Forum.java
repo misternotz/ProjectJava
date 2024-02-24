@@ -17,6 +17,8 @@ public class Forum {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	
 	private String HeadForum;
+	
+	@Column(columnDefinition = "TEXT")
 	private String detail;
 	private String author;
 	private Integer love;
